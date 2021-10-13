@@ -8,15 +8,20 @@
  */
 function trimProperties(obj) {
   // ✨ implement
-  const copyObj = []
-  const trimmed = JSON.stringify(obj, (key, value) => {
-    if (typeof value === 'string') {
-      return value.trim();
-    }
-    return value;
-  });
-  return JSON.parse(trimmed);
+  const result = {}
+  for (let prop in obj) {
+    result[prop] = obj[prop].trim()
+  }
+  return result
+  // const trimmed = JSON.stringify(obj, (key, value) => {
+  //   if (typeof value === 'string') {
+  //     return value.trim();
+  //   }
+  //   return value;
+  // });
+  // return JSON.parse(trimmed)
 }
+
 
 /**
  * [Exercise 2] trimPropertiesMutation trims in place the properties of an object
@@ -28,13 +33,17 @@ function trimProperties(obj) {
  */
 function trimPropertiesMutation(obj) {
   // ✨ implement
-  const trimmed = JSON.stringify(obj, (key, value) => {
-    if (typeof value === 'string') {
-      return value.trim();
-    }
-    return value;
-  });
-  return JSON.parse(trimmed);
+  // const trimmed = JSON.stringify(obj, (key, value) => {
+  //   if (typeof value === 'string') {
+  //     return value.trim();
+  //   }
+  //   return value;
+  // });
+  // return JSON.parse(trimmed);
+  for (let prop in obj) {
+    obj[prop] = obj[prop].trim()
+  }
+  return obj
 }
 
 /**
