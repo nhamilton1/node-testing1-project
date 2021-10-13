@@ -90,7 +90,7 @@ class Counter {
   countDown() {
     // return this.count > 0 ? this.count-- : 0
     if (this.count > 0) {
-      return this.count --
+      return this.count--
     } else {
       return this.count = 0
     }
@@ -125,7 +125,7 @@ class Seasons {
     if (this.currentSeason === 3) {
       this.currentSeason = 0
     } else {
-      this.currentSeason ++
+      this.currentSeason++
     }
     return results
   }
@@ -142,6 +142,9 @@ class Car {
     this.odometer = 0 // car initilizes with zero miles
     this.tank = tankSize // car initiazes full of gas
     // ✨ initialize whatever other properties are needed
+    this.tankSize = tankSize
+    this.name = name
+    this.mpg = mpg
   }
 
   /**
@@ -159,6 +162,16 @@ class Car {
    */
   drive(distance) {
     // ✨ implement
+    const milesCanDrive = this.tank * this.mpg
+    if (distance <= milesCanDrive) {
+      this.odometer = this.odometer + distance
+      this.tank = this.tank - (distance / this.mpg)
+      return this.odometer
+    } else {
+      this.odometer = this.odometer + milesCanDrive
+      this.tank = 0
+    }
+    return this.odometer
   }
 
   /**
@@ -174,6 +187,13 @@ class Car {
    */
   refuel(gallons) {
     // ✨ implement
+    const gallonsInCar = this.tankSize - this.tank
+    if (gallons <= gallonsInCar) {
+      this.tank = this.tank + gallons
+    } else {
+      this.tank = this.tankSize
+    }
+    return this.tank * this.mpg
   }
 }
 
