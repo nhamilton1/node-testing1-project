@@ -8,6 +8,14 @@
  */
 function trimProperties(obj) {
   // ✨ implement
+  const copyObj = []
+  const trimmed = JSON.stringify(obj, (key, value) => {
+    if (typeof value === 'string') {
+      return value.trim();
+    }
+    return value;
+  });
+  return JSON.parse(trimmed);
 }
 
 /**
@@ -20,6 +28,13 @@ function trimProperties(obj) {
  */
 function trimPropertiesMutation(obj) {
   // ✨ implement
+  const trimmed = JSON.stringify(obj, (key, value) => {
+    if (typeof value === 'string') {
+      return value.trim();
+    }
+    return value;
+  });
+  return JSON.parse(trimmed);
 }
 
 /**
